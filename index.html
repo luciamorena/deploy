@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root { --background: #1e1e1e ; --text: silver ; --hover: chartreuse; }
+        * { margin:0; padding:0; box-sizing: border-box; cursor: pointer; background_: lightgreen; }
+        body { display:flex; justify-content: center; align-items: center; height: 100vh; background: var(--background); }
+        h1 { font-size: 3rem; color: var(--text); }
+        h1:hover { color:var(--hover); }
+    </style>
+</head>
+<body>
+    <h1 id="botao">SISTEMA</h1>
+
+    <script>
+        const botao = document.getElementById('botao')
+        botao.onclick = async () => {
+            const resp = await fetch('https://back-ilson.herokuapp.com/')
+            const data = await resp.json()
+            console.log(data)
+            botao.innerHTML = data.hora.toUpperCase()
+        }
+    </script>
+</body>
+</html>
